@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshlab auto</title>
+   <link rel="icon" type="image/png" href="images/logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* ========== STYLE.CSS ========== */
+  
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Rubik:wght@300;400;600&display=swap');
+    body, h1, h2, p {
+      margin: 0;
+      padding: 0;
+      font-family: 'Chakra Petch', sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    .hero {
+      background: url('images/her') center/cover no-repeat;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: #000000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff3333;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section.dark {
+      background-color: #1a1a1a;
+    }
+
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .service img {
+      width: 64px;
+      margin-bottom: 10px;
+      filter: invert(1);
+    }
+
+    .service h3 {
+      margin: 0;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1em;
+    }
+
+    button {
+      background: #e60000;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3333;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    nav {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    background-color: #000000;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo */
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    position: relative;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    padding: 10px;
+    display: block;
+}
+
+.menu li a:hover {
+    color: #ff5722;
+}
+
+#hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+#hamburger.active {
+    transform: rotate(90deg);
+}
+
+/* Dropdown menu */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(0, 0, 0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    min-width: 250px;
+    z-index: 10;
+}
+
+.dropdown li {
+    width: 100%;
+}
+
+.dropdown li a {
+    padding: 10px;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+}
+
+.menu li:hover > .dropdown {
+    display: block;
+}
+
+/*styly pro o nás*/
+.hidden-text {
+    display: none;
+    margin-top: 20px;
+} 
+
+.about-us-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.about-us {
+    margin-top: 30px;
+}
+
+.about-us-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-us-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-frame {
+    padding: 10px;
+    border: 5px solid white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-us-content {
+    text-align: left;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.wave-line {
+    width: 100px;
+    margin: 10px 0;
+}
+
+.btn-show-more {
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-show-more:hover {
+    background: #0056b3;
+}
+
+.about-us-content h2 {
+    margin-top: 0;
+    color: #444;
+}
+
+.about-us-experience {
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+/*styly pro kotakty*/
+.contact {
+    background-color: #009688;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-icon { /* Nový kontejner pro ikonu */
+    width: 70px; /* Nastavte stejnou velikost pro obě ikony */
+    height: 70px;
+    border-radius: 50%; /* Kruhový tvar */
+    overflow: hidden; /* Ořízne případné přečnívající části obrázku */
+    display: flex; /* Pro centrování obrázku uvnitř kruhu */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    background-color: #f0f0f0; /* Nebo barva pozadí dle potřeby */
+}
+
+.contact-icon img {
+    max-width: 100%; /* Zajistí, že obrázek nepřesáhne kruh */
+    max-height: 100%;
+}
+
+/*kontaktní formulář*/
+.form {
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kontaktní formulář */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Změna šířky na procenta */
+    max-width: 500px; /* Maximální šířka pro větší obrazovky */
+    margin: 20px auto; /* Centrování formuláře */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%; /* Důležité pro responzivitu */
+    box-sizing: border-box; /* Zahrnutí paddingu a borderu do šířky */
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #3e8e41;
+}
+
+/* Media Query pro menší obrazovky (např. mobily) */
+@media (max-width: 768px) {
+    .contact-form {
+        width: 95%; /* Ještě menší šířka pro menší mobily */
+        padding: 10px; /* Menší padding */
+    }
+}
+
+  /* Kontaktní formulář */
+--------
+
+/* Join Us */
+.join-us .btn-apply {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    position: fixed;
+}
+
+/* Styl pro footer */
+footer {
+    text-align: center;
+    background-color: #000000;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #ff5722;
+}
+
+.copyright {
+    text-align: center;
+}
+    
+.grid-container {
+     display: grid;
+    grid-template-columns: repeat(2, 1fr); /* dva sloupce */
+    gap: 10px; /* mezery mezi obrázky */
+    width: 90%; /* šířka kontejneru */
+    max-width: 1200px; /* maximální šířka kontejneru */
+    margin: 20px auto; /* centrování kontejneru */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+.grid-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Přizpůsobení pro mobilní zařízení */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    footer {
+        font-size: 0.9rem;
+    }
+
+  
+}
+
+  </style>
+</head>
+
+
+<body>
+   
+  <nav class="nav-grid">
+    <div class="logo">
+      <a href="index.html"><img src="images/Logo.PNG" alt="FRESHLABAUTO Logo"></a>
+    </div>
+
+    <div class="nav-menu">
+      <div id="hamburger" class="hamburger">&#9776;</div>
+        <ul id="menu" class="menu">
+        <li><a>NABÍDKA &#9662;</a>
+        <ul class="dropdown">
+        <li><a href="#nabidka1">TÓNOVÁNÍ SKEL</a></li>
+        <li><a href="#nabidka2">EXTERIÉR</a></li>
+        <li><a href="#nabidka3">INTERIÉR</a></li>
+        <li><a href="#nabidka4">LEŠTĚNÍ LAKU</a></li>
+        </ul>
+        </li>
+        
+        <li><a href="#about-us">O MNĚ</a></li>
+        <li><a href="#galerie">GALERIE</a></li>
+        <li><a href="#contact">KONTAKT</a></li>
+      </div>
+  </nav>
+
+  
+  <header class="hero">
+      <div class="hero-content">
+        <h1>FRESHLAB AUTO</h1>
+        <p>Kompletní péče o váš vůz</p>
+        <a href="#kontakt" class="btn">POPTÁVKA</a>
+      </div>
+  </header>
+
+  
+
+  <section id="about-us">
+    <div class="about-us-container">
+      <div class="about-us-grid">
+        <div class="about-us-image">
+          <div class="image-frame">
+            <img src="images/about.png" alt="about">
+          </div>
+        </div>
+        <div class="about-us-content">
+          <h2>O MĚ</h2>
+          <div class="about-us-experience">
+          <p>Ahoj, jmenuji se Honza a auta jsou mou vášní od dětství. Mám cit pro detail, smysl pro čistotu a především – lásku 
+            k poctivé ruční práci. Každý lak i každý interiér si zaslouží nejen vyčistit, ale oživit a ukázat 
+            v plné kráse. Nejde mi jen o lesk, ale o pocit, že tvé auto znovu dýchá stylem a elegancí.</p>
+          
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nabidka" class="section">
+
+      <h2>NABÍDKA SLUŽEB</h2>
+
+      <div class="services">
+
+        <div class="service">
+          <img src="images/vacuum.png" alt="Motor">
+          <h3>ČIŠTĚNÍ INTERIÉRU</h3>
+        </div>
+
+        <div class="service">
+          <img src="images/lesk.png" alt="Flame">
+          <h3>LEŠTĚNÍ LAKU</h3>
+        </div>
+
+        <div class="service">
+          <img src="images/myti.svg" alt="Volant">
+          <h3>MYTÍ VOZU</h3>
+        </div>
+
+        <div class="service">
+          <img src="images/okno.svg" alt="Volant">
+          <h3>TÓNOVÁNÍ SKEL</h3>
+        </div>
+
+      </div>
+  </section>
+
+  <center><section>
+     <div id="nabidka1" class="nabidka1">
+        <img src="images/tonovani.jpeg" width="50%" height="50%" alt="Obrázek 1">
+        </div>
+  </section></center>
+
+   </section>
+  <center><section>
+     <div  id="nabidka2" class="nabidka2">
+        <img src="images/exterier.jpeg" width="50%" height="50%" alt="Obrázek 2">
+        </div>
+  </section></center>
+
+   </section>
+  <center><section>
+     <div  id="nabidka3" class="nabidka3">
+        <img src="images/interier.jpeg" width="50%" height="50%" alt="Obrázek 3">
+        </div>
+  </section></center>
+
+  <center><section>
+     <div id="nabidka4" class="nabidka4">
+        <img src="images/lesteni.jpeg" width="50%" height="50%" alt="Obrázek 4">
+        </div>
+  </section></center>
+
+  <section id="galerie" class="section dark">
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <img src="images/exterier.avif" alt="Auto 1">
+      <img src="images/interier.jfif" alt="Auto 2">
+      <img src="images/window.jfif" alt="Auto 3">
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="contact">
+    
+    <div id="contact">
+      <center><h2>KONTAKT</h2></center>
+      <div class="contact-grid">
+        <div class="contact-icon">
+          <img src="images/tel.png" alt="Telefon">
+        </div>
+        <p>+420 602 349 785</p>
+        <div class="contact-icon">
+          <img src="images/mail.png" alt="Email">
+        </div>
+        <p>FRESHLABAUTO@GMAIL.COM</p>
+      </div>
+    
+      <div class="ico">
+        <center><p>IČO: 03930831</p></center>
+      </div>
+      <center><h2>A NEBO MI NAPIŠTE ROVNOU TADY :)</h2></center>
+      <form action="https://formspree.io/f/xanqweae" method="post"  class="contact-form">
+      <label for="name">Jméno a Příjmení:</label>
+      <input type="text" id="name" name="name" placeholder="Vaše jméno" required>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Váš e-mail" required>
+      <label for="phone">Telefon:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Váš telefon" required>
+      <label for="message">Zpráva:</label>
+      <textarea id="message" name="message" placeholder="Vaše zpráva: Dobrý den, rád bych poprosil o zaslání nabídky, pro čištění interiéru. Díky s pozdravem Novotný." required></textarea>
+      <button type="submit">Odeslat</button>
+      </form>
+  </section>
+
+  <footer>
+    <div class="footer">
+      <a href="index.html"><img src="images/Logo.PNG" alt="FRESH LAB AUTO Logo" width="10%" height="10%">
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61558994196985" target="_blank"><img src="images/facebook.png.png" width="5%" height="5%" alt="Facebook"></a>
+          
+          <a href="https://www.instagram.com/odadoz_cz/profilecard/?igsh=NzBqcmVxbTBtcHk0" target="_blank"><img src="images/instagram.png" width="5%" height="5%" alt="Instagram"></a>
+        </div>
+      </a>   
+    </div>
+    <p>&copy; 2025 FRESH LAB AUTO. ALL RIGHTS RESERVED.</p> 
+  </footer>
+
+  <script>
+    // ========== SCRIPT.JS ========== //
+    document.getElementById('kontakt-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Děkujeme za zprávu! Ozveme se co nejdříve.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
