@@ -172,15 +172,29 @@ h2 {
 
     /* GALERIE */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+       display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  padding: 40px 20px;
     }
 
     .gallery img {
-      width: 100%;
-      border-radius: 8px;
+       width: 100%;
+  max-width: 400px;   /* stejná šířka všech obrázků */
+  height: 250px;      /* pevná výška všech obrázků */
+  object-fit: cover;  /* ořízne přebytečné části bez deformace */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
 
     /* KONTAKT */
     .contact-grid {
@@ -386,8 +400,8 @@ h2 {
     <center><h2>Galerie</h2></center>
     <div class="gallery">
       <img src="images/dilna.jpeg" alt="Auto 1">
-      <img src="images/zmena.jpeg" alt="Auto 2">
-      <img src="images/bavor.jpeg" alt="Auto 3">
+      <img src="images/bavor.jpeg" alt="Auto 2">
+      <img src="images/zmena.jpeg" alt="Auto 3">
     </div>
   </section>
 
